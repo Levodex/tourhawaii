@@ -1,0 +1,39 @@
+module.exports = {
+    extends: [
+        '@react-native-community',
+        'plugin:react/recommended',
+        'plugin:react-hooks/recommended',
+        'plugin:react-native/all',
+        'plugin:prettier/recommended',
+    ],
+    parser: '@babel/eslint-parser',
+    parserOptions: {
+        ecmaFeatures: {
+            jsx: true,
+        },
+    },
+    env: {
+        'react-native/react-native': true,
+        es6: true, // Adding this line to define ECMAScript 6 features
+    },
+    plugins: [ 'react', 'react-native', 'react-hooks' ],
+    rules: {
+        'react/react-in-jsx-scope': 'off', // React import is not needed since React 17
+        'react/prop-types': 'off', // Might not need PropTypes due to TypeScript
+        'prettier/prettier': [ 'error' ],
+        // <-- Future additional rules or overrides go here -->
+    },
+    settings: {
+        react: {
+            version: 'detect', // Automatically detect the React version
+        },
+    },
+    // <-- Future necessary overrides (fo ex: TypeScript) go here -->
+    overrides: [
+        {
+            files: [ '**/*.ts', '**/*.tsx' ],
+            parser: '@typescript-eslint/parser',
+            // <-- Other TypeScript specific settings if needed should go here -->
+        },
+    ],
+};
