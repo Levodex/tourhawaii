@@ -1,0 +1,17 @@
+{
+    "migIndex": 1,
+    "data": [
+        {
+            "path": "src/assets/fonts/CallingCode-Regular.otf",
+            "sha1": "680e9ad801d4400248f0d9f045c0877210d88391"
+        },
+        {
+            "path": "src/assets/fonts/LICENSES.md",
+            "sha1": "5f0198ccca1d45d9f4bd0622287f61c0512a4556"
+        },
+        {
+            "path": "src/assets/fonts/README.md",
+            "sha1": "bca3495a196ebd426bbe84689803c23eafffcc43"
+        }
+    ]
+}
