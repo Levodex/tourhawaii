@@ -24,7 +24,7 @@ import { VulcanoButton } from '@assets/svg/VulcanoButton';
 import { LandingPageScreen } from '@screens/LandingPageScreen';
 import { SurfingPageScreen } from '@screens/SurfingPageScreen';
 import { HulaPageScreen } from '@screens/HulaPageScreen';
-import { VulcanoPageScreen } from '@screens/VulcanoPageScreen';
+import { VulcanoesPageScreen } from '@screens/VulcanoesPageScreen';
 
 /**
  * Bottom tab navigation UI component to switch between Screens
@@ -107,7 +107,7 @@ export function BottomTabNavigator() {
             />
             <Tab.Screen
                 name="Vulcano"
-                component={VulcanoPageScreen}
+                component={VulcanoesPageScreen}
                 options={{
                     tabBarLabel: 'Vulcano',
                     tabBarIcon: VulcanoButton,
