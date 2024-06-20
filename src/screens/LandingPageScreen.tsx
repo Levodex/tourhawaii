@@ -15,7 +15,7 @@ import { COLORS } from '@theme/colors';
 import { AlohaBanner } from '@assets/svg/AlohaBanner';
 import { Label } from '@components/Label';
 import { HighlightsReel } from '@containers/HighlightsReel';
-import WelcomePageGraphics from '@assets/svg/WelcomeToHawaiiLabel';
+import WelcomePageGraphics from '@assets/svg/labels/WelcomeToHawaiiLabel';
 import { RightArrow } from '@assets/svg/buttons/RightArrow';
 import { ContactCard } from '@components/ContactCard';
 
