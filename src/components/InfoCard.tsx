@@ -8,7 +8,7 @@ import { Text, Card, TouchableRipple } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
 import { Label } from './Label';
-import { RightArrow } from '@assets/svg/RightArrow';
+import { RightArrow } from '@assets/svg/buttons/RightArrow';
 import { COLORS } from '@theme/colors';
 
 /**

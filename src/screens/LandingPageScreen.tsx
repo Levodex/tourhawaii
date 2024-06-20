@@ -5,16 +5,15 @@
  */
 
 import React from 'react';
-import { Dimensions, Image, ScrollView, View } from 'react-native';
+import { Image, ScrollView, View } from 'react-native';
 
-import { Text } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
-import { AlohaBanner } from '@assets/AlohaBanner';
+import * as CONSTANTS from '@constants';
+import { AlohaBanner } from '@assets/svg/AlohaBanner';
 import { Label } from '@components/Label';
 import { HighlightsReel } from '@containers/HighlightsReel';
 import WelcomePageGraphics from '@assets/svg/WelcomeToHawaiiLabel';
-import * as CONSTANTS from '@constants';
 
 /**
  * Landing Page Screen
@@ -46,9 +45,19 @@ export function LandingPageScreen() {
                     </View>
                 }
             </View>
-            <Label variant="titleLarge" style={styles.padded}>Highlights</Label>
+            <Label
+                variant="titleLarge"
+                style={styles.padded}
+            >
+                Highlights
+            </Label>
             <HighlightsReel />
-            <Label variant="titleLarge" style={styles.padded}>Categories</Label>
+            <Label
+                variant="titleLarge"
+                style={styles.padded}
+            >
+                Categories
+            </Label>
         </ScrollView>
     );
 }

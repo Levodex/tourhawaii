@@ -16,10 +16,10 @@ import Tab from './index';
 import { BOTTOM_TAB_NAVIGATOR_ICON_SIZE } from '@constants';
 import { COLORS } from '@theme/colors';
 
-import { HomeButton } from '@assets/svg/HomeButton';
-import { SurfingButton } from '@assets/svg/SurfingButton';
-import { HulaButton } from '@assets/svg/HulaButton';
-import { VulcanoButton } from '@assets/svg/VulcanoButton';
+import { HomeButton } from '@assets/svg/buttons/HomeButton';
+import { SurfingButton } from '@assets/svg/buttons/SurfingButton';
+import { HulaButton } from '@assets/svg/buttons/HulaButton';
+import { VulcanoButton } from '@assets/svg/buttons/VulcanoButton';
 
 import { LandingPageScreen } from '@screens/LandingPageScreen';
 import { SurfingPageScreen } from '@screens/SurfingPageScreen';
