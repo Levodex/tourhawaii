@@ -19,3 +19,7 @@ export const SPLASH_IMAGE_ASPECT_RATIO = 0.666;
 // Max Splash image height on landing page
 export const MAX_SPLASH_IMAGE_HEIGHT =
     Dimensions.get('window').height * SPLASH_IMAGE_ASPECT_RATIO;
+
+// Max Splash image height on Surfing page
+export const MAX_SURFING_SPLASH_IMAGE_HEIGHT =
+    Dimensions.get('window').width * SPLASH_IMAGE_ASPECT_RATIO;
