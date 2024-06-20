@@ -5,15 +5,45 @@
  */
 
 import React from 'react';
-import { Image, ScrollView, View } from 'react-native';
+import { Dimensions, FlatList, Image, ScrollView, View } from 'react-native';
 
+import { Menu } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
 import * as CONSTANTS from '@constants';
+import { COLORS } from '@theme/colors';
 import { AlohaBanner } from '@assets/svg/AlohaBanner';
 import { Label } from '@components/Label';
 import { HighlightsReel } from '@containers/HighlightsReel';
 import WelcomePageGraphics from '@assets/svg/WelcomeToHawaiiLabel';
+import { RightArrow } from '@assets/svg/buttons/RightArrow';
+
+import * as __MOCKS__ from '../../__mocks__/mockData1';
+
+interface FlatListRendererForCategories {
+    item: __MOCKS__.LandingPageCategory;
+    index: number;
+}
+
+/**
+ * Function to render categories within flatlist
+ */
+const renderCategories = ({ item, index }: FlatListRendererForCategories) => (
+    <View
+        key={index}
+        style={styles.categoriesContainer}
+    >
+        <Label
+            variant="titleMedium"
+            style={styles.categoryTitle}
+        >
+            {item.title}
+        </Label>
+        <>
+            <RightArrow />
+        </>
+    </View>
+);
 
 /**
  * Landing Page Screen
@@ -54,10 +84,15 @@ export function LandingPageScreen() {
             <HighlightsReel />
             <Label
                 variant="titleLarge"
-                style={styles.padded}
+                style={[styles.padded, { backgroundColor: COLORS.yellow }]}
             >
                 Categories
             </Label>
+            <FlatList
+                data={__MOCKS__.CATEGORIES}
+                renderItem={renderCategories}
+                scrollEnabled={false} // To prevent nested VirtualizedLists problem
+            />
         </ScrollView>
     );
 }
@@ -90,4 +125,18 @@ const styles = ScaledSheet.create({
     padded: {
         padding: '15@s',
     },
+    categoriesContainer: {
+        flexGrow: 1,
+        paddingHorizontal: '35@s',
+        paddingVertical: '5@s',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    categoryTitle: {
+        flexGrow: 1,
+    },
+    singleCategory: {
+        width: Dimensions.get('window').width,
+    },
+    arrowWrapper: {},
 });
