@@ -15,6 +15,7 @@ import { COLORS } from '@theme/colors';
 import { AlohaBanner } from '@assets/svg/AlohaBanner';
 import { Label } from '@components/Label';
 import { HighlightsReel } from '@containers/HighlightsReel';
+import BookTripButton from '@components/BookTripButton';
 import WelcomePageGraphics from '@assets/svg/labels/WelcomeToHawaiiLabel';
 import { RightArrow } from '@assets/svg/buttons/RightArrow';
 import { ContactCard } from '@components/ContactCard';
@@ -40,13 +41,13 @@ const renderCategories = ({ item, index }: FlatListRendererForCategories) => (
         >
             {item.title}
         </Label>
-        <TouchableRipple rippleColor={COLORS.touchMask} onPress={
-            ()=>
-                {
+        <TouchableRipple
+            rippleColor={COLORS.touchMask}
+            onPress={() => {
                 // TODO: In future versions, do something useful when clicking this arrow
-                    console.log(`Pressed arrow #${index + 1}`);
-            }
-        }>
+                console.log(`Pressed arrow #${index + 1}`);
+            }}
+        >
             <RightArrow />
         </TouchableRipple>
     </View>
@@ -57,71 +58,77 @@ const renderCategories = ({ item, index }: FlatListRendererForCategories) => (
  */
 export function LandingPageScreen() {
     return (
-        <ScrollView
-            style={styles.wholePageContainer}
-            contentContainerStyle={styles.scrollWrapper}
-            persistentScrollbar={true}
-        >
-            <View style={styles.bannerWrapper}>
-                <AlohaBanner />
+        <>
+            <View style={styles.floatingBottomButtonContainer}>
+                <BookTripButton />
             </View>
-            <View style={styles.imageAndGraphicsOverlayWrapper}>
-                <Image
-                    source={require('../assets/images/welcome-splash.jpg')}
-                    resizeMode={'cover'}
-                    style={styles.splashImage}
-                />
-                {
-                    /**
-                     * Graphics overlay to show
-                     *     "welcome to hawaii"
-                     * On top of the image
-                     */
-                    <View style={styles.graphicsOverlay}>
-                        <WelcomePageGraphics />
-                    </View>
-                }
-            </View>
-            <Label
-                variant="titleLarge"
-                style={[styles.highlightsLabel, styles.padded]}
-                bold
+            <ScrollView
+                style={styles.wholePageContainer}
+                contentContainerStyle={styles.scrollWrapper}
+                persistentScrollbar={true}
             >
-                Highlights
-            </Label>
-            <HighlightsReel />
-            <Label
-                variant="titleLarge"
-                style={[styles.padded, { backgroundColor: COLORS.yellow }]}
-                bold
-            >
-                Categories
-            </Label>
-            <FlatList
-                data={__MOCKS__.CATEGORIES}
-                renderItem={renderCategories}
-                scrollEnabled={false} // To prevent nested VirtualizedLists problem
-            />
-            <Label
-                variant="titleLarge"
-                style={[styles.padded, { backgroundColor: COLORS.yellow }]}
-                bold
-            >
-                Travel Guide
-            </Label>
-            {
-                // TODO: In future versions, load data via API calls and use that data
-                <ContactCard
-                    avatarImageSource={require('../assets/images/guide-avatar.jpg')}
-                    fullName="Hadwin Malone"
-                    subtitle="Guide since 2012"
-                    onClickContact={
-                        // TODO: In future versions, do something useful when clicking this arrow button
-                        () => console.log('ok')
+                <View style={styles.bannerWrapper}>
+                    <AlohaBanner />
+                </View>
+                <View style={styles.imageAndGraphicsOverlayWrapper}>
+                    <Image
+                        source={require('../assets/images/welcome-splash.jpg')}
+                        resizeMode={'cover'}
+                        style={styles.splashImage}
+                    />
+                    {
+                        /**
+                         * Graphics overlay to show
+                         *     "welcome to hawaii"
+                         * On top of the image
+                         */
+                        <View style={styles.graphicsOverlay}>
+                            <WelcomePageGraphics />
+                        </View>
                     }
+                </View>
+                <Label
+                    variant="titleLarge"
+                    style={[styles.highlightsLabel, styles.padded]}
+                    bold
+                >
+                    Highlights
+                </Label>
+                <HighlightsReel />
+                <Label
+                    variant="titleLarge"
+                    style={[styles.padded, { backgroundColor: COLORS.yellow }]}
+                    bold
+                >
+                    Categories
+                </Label>
+                <FlatList
+                    data={__MOCKS__.CATEGORIES}
+                    renderItem={renderCategories}
+                    scrollEnabled={false} // To prevent nested VirtualizedLists problem
                 />
-            }
-        </ScrollView>
+                <Label
+                    variant="titleLarge"
+                    style={[styles.padded, { backgroundColor: COLORS.yellow }]}
+                    bold
+                >
+                    Travel Guide
+                </Label>
+                {
+                    // TODO: In future versions, load data via API calls and use that data
+                    <ContactCard
+                        avatarImageSource={require('../assets/images/guide-avatar.jpg')}
+                        fullName="Hadwin Malone"
+                        subtitle="Guide since 2012"
+                        onClickContact={
+                            // TODO: In future versions, do something useful when clicking this arrow button
+                            () => console.log('ok')
+                        }
+                        ignoreButton
+                    />
+                }
+            </ScrollView>
+        </>
     );
 }
 
@@ -131,6 +138,13 @@ const styles = ScaledSheet.create({
     },
     scrollWrapper: {
         gap: '4@vs',
+    },
+    floatingBottomButtonContainer: {
+        position: 'absolute',
+        zIndex: +5,
+        bottom: '-10@vs',
+        alignSelf: 'center',
+        width: '100%',
     },
     imageAndGraphicsOverlayWrapper: {
         justifyContent: 'center',

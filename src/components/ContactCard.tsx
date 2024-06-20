@@ -22,6 +22,8 @@ export type ContactCardProps = {
     fullName: string;
     subtitle: string;
     onClickContact?: () => void; // TODO: In future versions, add functionality when the contact button is clicked
+    //
+    ignoreButton?: boolean; // On Landing Page the button is fully floating
 };
 
 /**
@@ -66,9 +68,11 @@ export function ContactCard(props: ContactCardProps) {
                     />
                 </View>
             </View>
-            <>
-                <BookTripButton />
-            </>
+            {!props.ignoreButton && (
+                <>
+                    <BookTripButton />
+                </>
+            )}
         </>
     );
 }
