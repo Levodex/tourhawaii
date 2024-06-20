@@ -5,9 +5,37 @@ Hello and welcome to
 -   Made using [`React native CLI`](https://github.com/react-native-community/cli).
 -   Based on [Figma](https://www.figma.com/design/1flpTvsVFD6DDRFnIpEtlw/App-Developer-Assignment) design
 -   Author [Ash](https://www.linkedin.com/in/ashuto-sh/)
--   Project has additionally licensed fonts
-    -   My `.APK` fill will look like a pixel-perfect re-render of the Figma design
-    -   But without the additional font, local builds will not
+-   Expected features:
+    -   **Any 2 of these 3**:
+        -   Landing Page
+        -   Surfing Page
+        -   Components from `Highlights`
+-   ### Implementations delivered:
+    -   #### Pixel perfect re-render of **all 3 pages**
+        -   Landing Page
+            -   Includes `HighLights` Reel
+            -   Includes categories list
+            -   Includes `Tour Guide` section
+        -   Bottom Tab navigation
+        -   Surfing Page
+            -   Includes Top Spots list
+            -   Includes `Tour Guide` section
+        -   `Highlights` Reel portion
+            -   Includes Surfing
+            -   Includes Hula
+            -   Includes Volcanoes
+    -   App is fully modular, and can be easily integrated with API integrations in the future
+
+# APK Testing
+
+I am currently building only debug APKs for demo
+Please note that while the APK should be a universal APK for all Android phones,
+Older and incompatible devices will not be able to run this APK
+
+> \*\*If the APK I attach on email doesn't install on your device,
+
+-   It means that your device may not support Universal APKs
+-   Please contact me ASAP, and I will give you an APK specifically for your phone
 
 # Installation and building
 
