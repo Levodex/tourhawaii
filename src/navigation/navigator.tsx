@@ -1,16 +1,13 @@
 /**
- * UI Parts used with app navigation
- *
- * This file has multiple named exports and no default exports
+ * Bottom Tab navigator for the App
  */
 
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 import { CommonActions } from '@react-navigation/native';
-import { Text, BottomNavigation } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
-import { SvgProps } from 'react-native-svg';
 
 import Tab from './index';
 import { BOTTOM_TAB_NAVIGATOR_ICON_SIZE } from '@constants';
