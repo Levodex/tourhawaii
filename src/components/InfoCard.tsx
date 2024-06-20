@@ -2,8 +2,8 @@
  * Post card for info
  */
 
-import React from 'react';
-import { Dimensions, View } from 'react-native';
+import React, { useState } from 'react';
+import { Dimensions, LayoutChangeEvent, View } from 'react-native';
 import { Text, Card, TouchableRipple } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
@@ -28,6 +28,17 @@ export type InfoCardProps = {
  *
  */
 export function InfoCard(props: InfoCardProps) {
+    const [coverHeight, setCoverHeight] = useState<number | undefined>();
+
+    /**
+     * Function to measure the height of the image at render time,
+     * And save it to the state
+     */
+    const onCoverLayout = (event: LayoutChangeEvent) => {
+        const { height } = event.nativeEvent.layout;
+        setCoverHeight(height);
+    };
+
     return (
         <View style={styles.wrapper}>
             <Card>
@@ -35,19 +46,36 @@ export function InfoCard(props: InfoCardProps) {
                     source={props.imageSource}
                     style={styles.banner}
                     resizeMode={'cover'}
+                    onLayout={onCoverLayout}
                 />
                 <Card.Title
                     titleVariant="headlineSmall"
-                    title={<Label color={COLORS.teal}>{props.title}</Label>}
+                    title={
+                        <Label
+                            color={COLORS.teal}
+                            bold
+                        >
+                            {props.title}
+                        </Label>
+                    }
+                    style={styles.spaced}
                 />
-                <Card.Content style={styles.restricted}>
+                <Card.Content
+                    style={[
+                        styles.restricted,
+                        coverHeight ? { height: coverHeight / 3 } : {},
+                    ]}
+                >
                     <Label variant="titleMedium">{props.subtitle}</Label>
                 </Card.Content>
                 <Card.Actions>
                     <TouchableRipple
                         style={styles.buttonWrapper}
                         rippleColor={COLORS.touchMask}
-                        onPress={() => console.log('ok')}
+                        onPress={
+                            // TODO: In future versions, do something useful when clicking this arrow button
+                            () => console.log('ok')
+                        }
                     >
                         <RightArrow />
                     </TouchableRipple>
@@ -65,6 +93,9 @@ const styles = ScaledSheet.create({
         borderRadius: 42,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    spaced: {
+        marginTop: '15@vs',
     },
     banner: {
         width: (Dimensions.get('window').width * 38) / 45,

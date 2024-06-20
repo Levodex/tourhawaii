@@ -21,6 +21,7 @@ interface LabelProps {
     variant?: VariantProp<never>;
     children: React.ReactNode | string;
     style?: StyleProp<TextStyle>;
+    bold?: boolean;
 }
 
 /**
@@ -29,13 +30,15 @@ interface LabelProps {
  *
  * Design schema: https://www.figma.com/design/1flpTvsVFD6DDRFnIpEtlw/App-Developer-Assignment
  */
-export function Label({ color, variant, children, style }: LabelProps) {
+export function Label({ color, variant, children, style, bold }: LabelProps) {
     return (
         <Text
             variant={variant}
             style={[
                 {
-                    fontFamily: 'CallingCode-Regular',
+                    fontFamily: bold
+                        ? 'IBMPlexMono-Bold'
+                        : 'CallingCode-Regular',
                     color: color ?? COLORS.black,
                 },
                 style ?? {},

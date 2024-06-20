@@ -7,7 +7,7 @@
 import React from 'react';
 import { Dimensions, FlatList, Image, ScrollView, View } from 'react-native';
 
-import { Menu } from 'react-native-paper';
+import { TouchableRipple } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
 import * as CONSTANTS from '@constants';
@@ -17,6 +17,7 @@ import { Label } from '@components/Label';
 import { HighlightsReel } from '@containers/HighlightsReel';
 import WelcomePageGraphics from '@assets/svg/WelcomeToHawaiiLabel';
 import { RightArrow } from '@assets/svg/buttons/RightArrow';
+import { ContactCard } from '@components/ContactCard';
 
 import * as __MOCKS__ from '../../__mocks__/mockData1';
 
@@ -39,9 +40,15 @@ const renderCategories = ({ item, index }: FlatListRendererForCategories) => (
         >
             {item.title}
         </Label>
-        <>
+        <TouchableRipple rippleColor={COLORS.touchMask} onPress={
+            ()=>
+                {
+                // TODO: In future versions, do something useful when clicking this arrow
+                    console.log(`Pressed arrow #${index + 1}`);
+            }
+        }>
             <RightArrow />
-        </>
+        </TouchableRipple>
     </View>
 );
 
@@ -77,7 +84,8 @@ export function LandingPageScreen() {
             </View>
             <Label
                 variant="titleLarge"
-                style={styles.padded}
+                style={[styles.highlightsLabel, styles.padded]}
+                bold
             >
                 Highlights
             </Label>
@@ -85,6 +93,7 @@ export function LandingPageScreen() {
             <Label
                 variant="titleLarge"
                 style={[styles.padded, { backgroundColor: COLORS.yellow }]}
+                bold
             >
                 Categories
             </Label>
@@ -93,6 +102,25 @@ export function LandingPageScreen() {
                 renderItem={renderCategories}
                 scrollEnabled={false} // To prevent nested VirtualizedLists problem
             />
+            <Label
+                variant="titleLarge"
+                style={[styles.padded, { backgroundColor: COLORS.yellow }]}
+                bold
+            >
+                Travel Guide
+            </Label>
+            {
+                // TODO: In future versions, load data via API calls and use that data
+                <ContactCard
+                    avatarImageSource={require('../assets/images/guide-avatar.jpg')}
+                    fullName="Hadwin Malone"
+                    subtitle="Guide since 2012"
+                    onClickContact={
+                        // TODO: In future versions, do something useful when clicking this arrow button
+                        () => console.log('ok')
+                    }
+                />
+            }
         </ScrollView>
     );
 }
@@ -124,6 +152,9 @@ const styles = ScaledSheet.create({
     },
     padded: {
         padding: '15@s',
+    },
+    highlightsLabel: {
+        marginTop: '15@vs',
     },
     categoriesContainer: {
         flexGrow: 1,
