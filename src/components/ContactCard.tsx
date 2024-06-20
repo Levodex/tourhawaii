@@ -66,9 +66,9 @@ export function ContactCard(props: ContactCardProps) {
                     />
                 </View>
             </View>
-            <View style={styles.bookingButtonContainer}>
+            <>
                 <BookTripButton />
-            </View>
+            </>
         </>
     );
 }
@@ -108,8 +108,5 @@ const styles = ScaledSheet.create({
         padding: '7.5@s',
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    bookingButtonContainer: {
-        
     },
 });

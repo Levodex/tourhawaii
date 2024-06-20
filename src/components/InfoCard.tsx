@@ -4,7 +4,7 @@
 
 import React, { useState } from 'react';
 import { Dimensions, LayoutChangeEvent, View } from 'react-native';
-import { Text, Card, TouchableRipple } from 'react-native-paper';
+import { Card, TouchableRipple } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
 
 import { Label } from './Label';
@@ -102,8 +102,5 @@ const styles = ScaledSheet.create({
     },
     restricted: {
         maxWidth: (Dimensions.get('window').width * 38) / 45,
-    },
-    wrappedText: {
-        flexWrap: 'wrap',
     },
 });

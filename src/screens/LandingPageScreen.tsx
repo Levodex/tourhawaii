@@ -5,7 +5,7 @@
  */
 
 import React from 'react';
-import { Dimensions, FlatList, Image, ScrollView, View } from 'react-native';
+import { FlatList, Image, ScrollView, View } from 'react-native';
 
 import { TouchableRipple } from 'react-native-paper';
 import { ScaledSheet } from 'react-native-size-matters';
@@ -166,8 +166,4 @@ const styles = ScaledSheet.create({
     categoryTitle: {
         flexGrow: 1,
     },
-    singleCategory: {
-        width: Dimensions.get('window').width,
-    },
-    arrowWrapper: {},
 });

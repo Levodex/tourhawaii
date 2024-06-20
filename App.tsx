@@ -6,7 +6,7 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 
-import { BottomTabNavigator } from '@navigation/parts';
+import { BottomTabNavigator } from '@navigation/navigator';
 
 /**
  * Main App component

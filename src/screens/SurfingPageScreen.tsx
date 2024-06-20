@@ -13,9 +13,7 @@ import * as CONSTANTS from '@constants';
 import { COLORS } from '@theme/colors';
 import { AlohaBanner } from '@assets/svg/AlohaBanner';
 import { Label } from '@components/Label';
-import { HighlightsReel } from '@containers/HighlightsReel';
 import SurfingPageGraphics from '@assets/svg/labels/SurfingLabel';
-import { RightArrow } from '@assets/svg/buttons/RightArrow';
 import { ContactCard } from '@components/ContactCard';
 
 import * as __MOCKS__ from '../../__mocks__/mockData1';
